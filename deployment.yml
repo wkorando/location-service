@@ -1,0 +1,27 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: location-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: location-service
+  template:
+    metadata:
+      labels:
+        run: location-service
+    spec:
+      containers:
+      - image: us.icr.io/living-on-the-cloud/location-service:latest
+        imagePullPolicy: IfNotPresent
+        name: location-service
+        ports:
+        - containerPort: 8080
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
