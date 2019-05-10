@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
       - image: us.icr.io/living-on-the-cloud/location-service:latest
-        imagePullPolicy: IfNotPresent
         name: location-service
         ports:
         - containerPort: 8080
