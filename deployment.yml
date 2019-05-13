@@ -19,12 +19,12 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: SECRET_USERNAME
+        - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
               name: postgres-connection
               key: username
-        - name: SECRET_PASSWORD
+        - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: postgres-connection
