@@ -30,7 +30,7 @@ metadata:
   name: location-service-node-port
 spec:
   selector:    
-    app: location-service
+    run: location-service
   type: NodePort
   ports:  
   - name: http
