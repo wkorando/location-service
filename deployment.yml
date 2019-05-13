@@ -34,10 +34,6 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-    volumes:
-    - name: postgres-connection
-      secret:
-        secretName: postgres-connection
 ---
 apiVersion: v1
 kind: Service
