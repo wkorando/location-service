@@ -1,0 +1,20 @@
+= Location Service API Guide
+Billy Korando;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:operation-curl-request-title: Example request
+:operation-http-response-title: Example response
+
+[[overview]]
+= Overview
+
+[[resources-tag-retrieve]]
+== Get all locations
+
+A `GET` request to retrieve all movies
+
+operation::find-all-locations[snippets='response-fields,curl-request,http-response,response-fields']
