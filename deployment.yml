@@ -18,11 +18,26 @@ spec:
         name: location-service
         ports:
         - containerPort: 8080
+        env:
+        - name: SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-connection
+              key: username
+        - name: SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-connection
+              key: password
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+    volumes:
+    - name: postgres-connection
+      secret:
+        secretName: postgres-connection
 ---
 apiVersion: v1
 kind: Service
@@ -38,3 +53,12 @@ spec:
     targetPort: 8080
     nodePort: 31416
     protocol: TCP
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-connection
+type: Opaque
+data:
+  username: a2hnd3VyYmw=
+  password: RW9nWnpFckJudFZFV3BjRV9VTlRPUVpXblZmb0M4MDM=
